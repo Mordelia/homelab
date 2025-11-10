@@ -1,8 +1,6 @@
 # Homelab Infrastructure
 
 <p align="center">
-  <img src="https://img.shields.io/github/repo-size/mordelia/homelab?style=for-the-badge" />
-  <img src="https://img.shields.io/github/last-commit/mordelia/homelab?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Debian-CE0058?style=for-the-badge&logo=debian&logoColor=white" />
   <img src="https://img.shields.io/badge/Platform-OpenMediaVault-blue?style=for-the-badge&logo=openmediavault&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
@@ -60,5 +58,4 @@ docker compose up -d
 ## 🪪 License
 This project is released under the MIT License.
 It is intended for educational and self-hosting reference purposes.
-
 ---
