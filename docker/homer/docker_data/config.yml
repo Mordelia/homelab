@@ -1,0 +1,87 @@
+---
+title: "Dashboard - NAS7010 & Others"
+subtitle: "Quick access to my services"
+logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homer.png"
+theme: default
+columns: 3
+
+services:
+  - name: "Infrastructure"
+    icon: "fas fa-server"
+    items:
+      - name: "OpenMediaVault"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openmediavault.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "Portainer"
+        type: "Portainer"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png"
+        url: "http://example.local"
+        apikey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        target: "_blank"
+
+      - name: "Pi-hole"
+        type: "PiHole"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png"
+        url: "http://192.168.x.x/admin"
+        endpoint: "http://192.168.x.x"
+        apikey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        apiVersion: 6
+        checkInterval: 3000
+        target: "_blank"
+
+      - name: "Speedtest Tracker"
+        type: "SpeedtestTracker"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/speedtest-tracker.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "Nginx Proxy Manager"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx-proxy-manager.png"
+        url: "http://example.local"
+        target: "_blank"
+
+  - name: "Entertainment"
+    icon: "fas fa-film"
+    items:
+      - name: "Plex"
+        type: "Plex"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/plex.png"
+        url: "http://example.local/web"
+        endpoint: "http://192.168.x.x:xxxx"
+        token: "xxxxxxxxxxxxxxxxxxxx"
+        target: "_blank"
+
+  - name: "Tools"
+    icon: "fas fa-tools"
+    items:
+      - name: "Nextcloud"
+        type: "Nextcloud"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nextcloud.png"
+        url: "http://192.168.x.x:xxxx"
+        target: "_blank"
+
+      - name: "WikiJs"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wikijs.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "Posterizarr"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/posterizarr.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "qBittorrent"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.png"
+        url: "http://192.168.x.x:xxxx"
+        target: "_blank"
+
+  - name: "3D Printing"
+    icon: "fa-solid fa-cube"
+    items:
+      - name: "Mainsail"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mainsail.png"
+        subtitle: "CR10"
+        url: "http://192.168.x.x"
+        target: "_blank"

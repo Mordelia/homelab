@@ -1,0 +1,31 @@
+services:
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_PASSWORD: xxxxxxxx
+      POSTGRES_USER: xxxxxxxx
+    logging:
+      driver: none
+    restart: unless-stopped
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  wiki:
+    image: ghcr.io/requarks/wiki:2
+    depends_on:
+      - db
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: xxxxxxxx
+      DB_USER: xxxxxxxx
+      DB_PASS: xxxxxxxx
+      DB_NAME: wiki
+    restart: unless-stopped
+    ports:
+      - "xxxx:3000"
+
+volumes:
+  db-data:
