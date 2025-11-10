@@ -58,4 +58,5 @@ docker compose up -d
 ## 🪪 License
 This project is released under the MIT License.
 It is intended for educational and self-hosting reference purposes.
+
 ---
