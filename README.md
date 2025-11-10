@@ -1,8 +1,8 @@
 # Homelab Infrastructure
 
 <p align="center">
-  <img src="https://img.shields.io/github/repo-size/mordelia/homelab?style=for-the-badge" />
-  <img src="https://img.shields.io/github/last-commit/mordelia/homelab?style=for-the-badge" />
+  <img src="https://img.shields.io/github/repo-size/Mordelia/homelab?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/Mordelia/homelab?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Debian-CE0058?style=for-the-badge&logo=debian&logoColor=white" />
   <img src="https://img.shields.io/badge/Platform-OpenMediaVault-blue?style=for-the-badge&logo=openmediavault&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
