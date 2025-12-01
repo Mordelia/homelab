@@ -54,6 +54,7 @@ docker compose up -d
 
 ## 🚀 Future Improvements
 - Set up Jellyfin
+- Set up NetAlertX
 
 ## 🪪 License
 This project is released under the MIT License.
