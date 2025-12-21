@@ -31,6 +31,7 @@ All services are deployed as isolated Docker containers with persistent volumes 
 | **Speedtest Tracker** | Internet performance monitoring | Docker |
 | **Wiki.js** | Internal documentation platform | Docker |
 | **NetAlertX** | Network and device monitoring/alerting | Docker |
+| **Vert** | Media converter | Docker |
 
 ## 📁 Repository Structure
 ```
@@ -43,6 +44,7 @@ homelab/
 │ ├── nginx/
 │ ├── posterizarr/
 │ ├── speedtest-tracker/
+│ ├── vert/
 │ └── wikijs/
 └── README.md
 ```
@@ -56,7 +58,6 @@ docker compose up -d
 
 ## 🚀 Future Improvements
 - Set up Jellyfin
-- Set up Vert.sh
 - Set up Pterodactyl
 
 ## 🪪 License

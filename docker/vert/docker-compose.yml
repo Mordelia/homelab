@@ -1,0 +1,20 @@
+services:
+  vertd:
+    image: ghcr.io/vert-sh/vertd:latest
+    container_name: vertd
+    ports:
+      - "xxxxx:24153"
+    restart: unless-stopped
+
+  vert:
+    image: ghcr.io/vert-sh/vert:latest
+    container_name: vert
+    ports:
+      - "xxxx:80"
+    environment:
+      PUB_ENV: production
+      PUB_HOSTNAME: "http://localhost:xxxx"
+      PUB_VERTD_URL: "http://vertd:xxxxx"
+    depends_on:
+      - vertd
+    restart: unless-stopped
