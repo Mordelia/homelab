@@ -83,8 +83,8 @@ services:
         url: "http://192.168.x.x:xxxx"
         target: "_blank"
 
-      - name: "Vert"
-        logo: "https://private-user-images.githubusercontent.com/62841684/410688165-bf441748-0ec5-4c8a-b3e5-11301ee3f0bd.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF>
+      - name: "VERT.sh"
+        logo: "https://raw.githubusercontent.com/VERT-sh/VERT/refs/heads/main/static/favicon.png"
         url: "http://vert.lan"
         target: "_blank"
 
