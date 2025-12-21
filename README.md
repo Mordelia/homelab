@@ -30,6 +30,7 @@ All services are deployed as isolated Docker containers with persistent volumes 
 | **Posterizarr** | Poster generation for media libraries | Docker |
 | **Speedtest Tracker** | Internet performance monitoring | Docker |
 | **Wiki.js** | Internal documentation platform | Docker |
+| **NetAlertX** | Network and device monitoring/alerting | Docker |
 
 ## 📁 Repository Structure
 ```
@@ -37,6 +38,7 @@ homelab/
 ├── docker/
 │ ├── diun/
 │ ├── homer/
+│ ├── netalertx/
 │ ├── nextcloud/
 │ ├── nginx/
 │ ├── posterizarr/
@@ -54,8 +56,7 @@ docker compose up -d
 
 ## 🚀 Future Improvements
 - Set up Jellyfin
-- Set up NetAlertX
-- Set up Vert
+- Set up Vert.sh
 - Set up Pterodactyl
 
 ## 🪪 License
