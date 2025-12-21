@@ -42,6 +42,12 @@ services:
         url: "http://example.local"
         target: "_blank"
 
+      - name: "NetAlertX"
+        logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/netalertx.png"
+        url: "http://example.local"
+        target: "_blank"
+
+
   - name: "Entertainment"
     icon: "fas fa-film"
     items:
@@ -75,6 +81,11 @@ services:
       - name: "qBittorrent"
         logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.png"
         url: "http://192.168.x.x:xxxx"
+        target: "_blank"
+
+      - name: "Vert"
+        logo: "https://private-user-images.githubusercontent.com/62841684/410688165-bf441748-0ec5-4c8a-b3e5-11301ee3f0bd.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF>
+        url: "http://vert.lan"
         target: "_blank"
 
   - name: "3D Printing"
