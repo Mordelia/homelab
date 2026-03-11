@@ -32,6 +32,13 @@ All services are deployed as isolated Docker containers with persistent volumes 
 | **Wiki.js** | Internal documentation platform | Docker |
 | **NetAlertX** | Network and device monitoring/alerting | Docker |
 | **Vert** | Media converter | Docker |
+| **Prometheus** | Monitoring and alerting | Docker |
+| **Grafana** | Visualization and alerting dashboard | Docker |
+| **Alertmanager** | Alert routing and notification | Docker |
+| **Cadvisor** | Container monitoring and metrics | Docker |
+| **Node Exporter** | Host monitoring and metrics | Docker |
+| **Blackbox Exporter** | Network monitoring and metrics | Docker |
+| **Uptime Kuma** | Uptime monitoring and alerting | Docker |
 
 ## 📁 Repository Structure
 ```
@@ -39,6 +46,8 @@ homelab/
 ├── docker/
 │ ├── diun/
 │ ├── homer/
+│ ├── monitoring/
+│ │ └── prometheus/
 │ ├── netalertx/
 │ ├── nextcloud/
 │ ├── nginx/
@@ -59,7 +68,7 @@ docker compose up -d
 ## 🚀 Future Improvements
 - Set up Jellyfin
 - Set up Pterodactyl
-- Set up Prowlarr, Sonarr, Radarr and others arr
+- Use an other dashboard than Homer
 
 ## 🪪 License
 This project is released under the MIT License.
