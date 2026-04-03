@@ -69,6 +69,8 @@ docker compose up -d
 - Set up Jellyfin
 - Set up Pterodactyl
 - Use an other dashboard than Homer
+- Set up portracker (mostafa-wahied)
+- Set up Poline (meodai/poline)
 
 ## 🪪 License
 This project is released under the MIT License.
