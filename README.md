@@ -69,8 +69,7 @@ docker compose up -d
 - Set up Jellyfin
 - Set up Pterodactyl
 - Use an other dashboard than Homer (maybe Glance)
-- Set up portracker (mostafa-wahied)
-- Set up Poline (meodai/poline)
+- Set up portracker (mostafa-wahied) (installed, but needs to be updated in this repo)
 - Set up Overleaf
 
 ## 🪪 License
