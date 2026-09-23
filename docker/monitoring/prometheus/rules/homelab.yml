@@ -1,0 +1,45 @@
+groups:
+  - name: homelab-base
+    interval: 30s
+    rules:
+      # Any Prometheus scrape target down for 2 minutes
+      - alert: TargetDown
+        expr: up == 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Target {{ $labels.instance }} ({{ $labels.job }}) is down"
+
+      # Blackbox HTTP probe failing for 2 minutes
+      - alert: BlackboxProbeFailed
+        expr: probe_success == 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "HTTP probe failed for {{ $labels.instance }}"
+
+      # Filesystem filling up (> 85% used for 5 minutes, tmpfs/snap excluded)
+      - alert: DiskFillingUp
+        expr: |
+          (
+            1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|squashfs"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|squashfs"}
+          ) > 0.85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Filesystem {{ $labels.mountpoint }} on {{ $labels.instance }} is > 85% full"
+
+      # Memory pressure (> 90% used for 5 minutes)
+      - alert: MemoryPressure
+        expr: |
+          (
+            1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes
+          ) > 0.90
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Memory usage > 90% on {{ $labels.instance }}"

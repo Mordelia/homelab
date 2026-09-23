@@ -48,15 +48,22 @@ services:
         target: "_blank"
 
 
-  - name: "Entertainment"
-    icon: "fas fa-film"
+  - name: "Monitoring"
+    icon: "fas fa-chart-line"
     items:
-      - name: "Plex"
-        type: "Plex"
-        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/plex.png"
-        url: "http://example.local/web"
-        endpoint: "http://192.168.x.x:xxxx"
-        token: "xxxxxxxxxxxxxxxxxxxx"
+      - name: "Grafana"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grafana.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "Prometheus"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/prometheus.png"
+        url: "http://example.local"
+        target: "_blank"
+
+      - name: "Uptime Kuma"
+        logo: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/uptime-kuma.png"
+        url: "http://example.local"
         target: "_blank"
 
   - name: "Tools"

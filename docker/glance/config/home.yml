@@ -1,0 +1,135 @@
+# Glance home page (sanitized: replace example.local with real internal URLs on the NAS only).
+# Note: included via `$include` in glance.yml, so this file must be a LIST of pages.
+- name: Home
+  slug: home
+  columns:
+    - size: small
+      widgets:
+        - type: search
+          search-engine: duckduckgo
+
+        - type: clock
+          hour-format: 24h
+
+        - type: weather
+          location: Reims, France
+          units: metric
+          hour-format: 24h
+
+        - type: monitor
+          title: Services
+          sites:
+            - title: Grafana
+              url: http://example.local
+            - title: Prometheus
+              url: http://example.local
+            - title: Uptime Kuma
+              url: http://example.local
+            - title: Homer
+              url: http://example.local
+            - title: Portainer
+              url: http://example.local
+            - title: Nextcloud
+              url: http://example.local
+            - title: Wiki.js
+              url: http://example.local
+            - title: Pi-hole
+              url: http://example.local
+            - title: Portracker
+              url: http://example.local
+
+    - size: full
+      widgets:
+        - type: docker-containers
+          title: Containers
+
+        - type: bookmarks
+          title: Homelab
+          groups:
+            - title: Monitoring
+              links:
+                - title: Grafana
+                  url: http://example.local
+                - title: Prometheus
+                  url: http://example.local
+                - title: Alertmanager
+                  url: http://example.local
+                - title: Uptime Kuma
+                  url: http://example.local
+                - title: cAdvisor
+                  url: http://example.local
+            - title: Infrastructure
+              links:
+                - title: Portainer
+                  url: http://example.local
+                - title: Nginx Proxy Manager
+                  url: http://example.local
+                - title: Pi-hole
+                  url: http://example.local
+                - title: Homer
+                  url: http://example.local
+                - title: Glance
+                  url: http://example.local
+            - title: Data
+              links:
+                - title: Nextcloud
+                  url: http://example.local
+                - title: Wiki.js
+                  url: http://example.local
+                - title: Portracker
+                  url: http://example.local
+                - title: Home Assistant
+                  url: http://example.local
+            - title: Media & Tools
+              links:
+                - title: Posterizarr
+                  url: http://example.local
+                - title: Speedtest Tracker
+                  url: http://example.local
+                - title: Vert
+                  url: http://example.local
+                - title: CouchDB
+                  url: http://example.local
+
+    - size: small
+      widgets:
+        - type: custom-api
+          title: NAS
+          template: |
+            {{ $cpu := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-avg(rate(node_cpu_seconds_total{mode=\"idle\",instance=\"example.local:xxxx\"}[5m])))" | getResponse }}
+            {{ $mem := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_memory_MemAvailable_bytes{instance=\"example.local:xxxx\"}/node_memory_MemTotal_bytes{instance=\"example.local:xxxx\"})" | getResponse }}
+            {{ $disk := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_filesystem_avail_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"}/node_filesystem_size_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"})" | getResponse }}
+            <div>CPU {{ printf "%.0f" ($cpu.JSON.Float "data.result.0.value.1") }}% - MEM {{ printf "%.0f" ($mem.JSON.Float "data.result.0.value.1") }}% - DISK {{ printf "%.0f" ($disk.JSON.Float "data.result.0.value.1") }}%</div>
+
+        - type: custom-api
+          title: Domotique
+          template: |
+            {{ $cpu := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-avg(rate(node_cpu_seconds_total{mode=\"idle\",instance=\"example.local:xxxx\"}[5m])))" | getResponse }}
+            {{ $mem := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_memory_MemAvailable_bytes{instance=\"example.local:xxxx\"}/node_memory_MemTotal_bytes{instance=\"example.local:xxxx\"})" | getResponse }}
+            {{ $disk := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_filesystem_avail_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"}/node_filesystem_size_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"})" | getResponse }}
+            <div>CPU {{ printf "%.0f" ($cpu.JSON.Float "data.result.0.value.1") }}% - MEM {{ printf "%.0f" ($mem.JSON.Float "data.result.0.value.1") }}% - DISK {{ printf "%.0f" ($disk.JSON.Float "data.result.0.value.1") }}%</div>
+
+        - type: custom-api
+          title: Media
+          template: |
+            {{ $cpu := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-avg(rate(node_cpu_seconds_total{mode=\"idle\",instance=\"example.local:xxxx\"}[5m])))" | getResponse }}
+            {{ $mem := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_memory_MemAvailable_bytes{instance=\"example.local:xxxx\"}/node_memory_MemTotal_bytes{instance=\"example.local:xxxx\"})" | getResponse }}
+            {{ $disk := newRequest "http://example.local/api/v1/query" | withParameter "query" "100*(1-node_filesystem_avail_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"}/node_filesystem_size_bytes{mountpoint=\"/\",instance=\"example.local:xxxx\"})" | getResponse }}
+            <div>CPU {{ printf "%.0f" ($cpu.JSON.Float "data.result.0.value.1") }}% - MEM {{ printf "%.0f" ($mem.JSON.Float "data.result.0.value.1") }}% - DISK {{ printf "%.0f" ($disk.JSON.Float "data.result.0.value.1") }}%</div>
+
+        - type: dns-stats
+          service: pihole-v6
+          url: http://example.local
+          password: ${PIHOLE_PASSWORD}
+          hour-format: 24h
+
+        - type: releases
+          show-source-icon: true
+          collapse-after: 5
+          repositories:
+            - glanceapp/glance
+            - home-assistant/core
+            - portainer/portainer
+            - pihole/pihole
+            - louislam/uptime-kuma
+            - grafana/grafana
