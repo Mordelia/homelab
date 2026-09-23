@@ -1,0 +1,10 @@
+services:
+  whisper:
+    image: rhasspy/wyoming-whisper
+    container_name: whisper
+    restart: unless-stopped
+    ports:
+      - "xxxx:10300"
+    volumes:
+      - ./whisper-data:/data
+    command: --model base-int8 --language fr

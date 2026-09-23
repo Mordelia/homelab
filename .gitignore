@@ -1,0 +1,15 @@
+# Secrets réels — ne jamais committer
+.env
+**/.env
+*.key
+*.pem
+
+# Données persistantes locales (volumes bind) — ne versionner que les compose
+**/portracker-data/
+**/etc-pihole/
+**/whisper-data/
+**/nextcloud_data/
+**/letsencrypt/
+
+# Stacks volontairement exclues du git
+**/wireguard_conffiles/

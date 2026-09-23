@@ -1,0 +1,16 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "xx:53/tcp"
+      - "xx:53/udp"
+      - "xx:80/tcp"
+      - "xx:443/tcp"
+    environment:
+      TZ: 'Europe/Paris'
+      FTLCONF_webserver_api_password: 'xxxxxxxx'
+      FTLCONF_dns_listeningMode: 'all'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+    restart: unless-stopped

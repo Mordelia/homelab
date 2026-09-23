@@ -12,49 +12,62 @@
 </p>
 
 
-This repository documents the configuration of my **personal homelab** running on **OpenMediaVault**, using **Docker** and **Portainer** to orchestrate and maintain multiple self-hosted services.
+This repository documents the configuration of my **personal homelab**, using **Docker** to orchestrate and maintain multiple self-hosted services.
 
-## 🧩 Overview
-The goal of this project is to maintain a modular, reliable, and reproducible self-hosted environment for both experimentation and daily use.  
-All services are deployed as isolated Docker containers with persistent volumes and defined networks.
+> **Warning:** all sensitive values (IPs, exposed ports, passwords, tokens, keys) are replaced with `xxxx` / `example.local`. Never commit a real `.env`. 
 
-## ⚙️ Core Components
-| Service | Purpose | Stack |
-|----------|----------|-------|
-| **OpenMediaVault** | Base NAS operating system | Debian-based |
-| **Portainer** | Container management and monitoring | Docker |
-| **Nginx** | Reverse proxy and web routing | Docker |
-| **Nextcloud** | Private cloud storage and file synchronization | Docker |
-| **Homer** | Dashboard for accessing internal services | Docker |
-| **Diun** | Docker image update notifier | Docker |
-| **Posterizarr** | Poster generation for media libraries | Docker |
-| **Speedtest Tracker** | Internet performance monitoring | Docker |
-| **Wiki.js** | Internal documentation platform | Docker |
-| **NetAlertX** | Network and device monitoring/alerting | Docker |
-| **Vert** | Media converter | Docker |
-| **Prometheus** | Monitoring and alerting | Docker |
-| **Grafana** | Visualization and alerting dashboard | Docker |
-| **Alertmanager** | Alert routing and notification | Docker |
-| **Cadvisor** | Container monitoring and metrics | Docker |
-| **Node Exporter** | Host monitoring and metrics | Docker |
-| **Blackbox Exporter** | Network monitoring and metrics | Docker |
-| **Uptime Kuma** | Uptime monitoring and alerting | Docker |
+## 🖥️ Main machine — NAS (Debian 12, OpenMediaVault)
+
+| Service | Observed state | In this repo |
+|----------|---------------|-------------|
+| **OpenMediaVault** | Base OS | — (infra) |
+| **Portainer CE** | Running (launched via `docker run`, `portainer_data` volume) | Mention only, no compose |
+| **Nginx Proxy Manager** | Running | `docker/nginx/` |
+| **Nextcloud** | Running (2 containers) | `docker/nextcloud/` |
+| **Homer** | Running | `docker/homer/` |
+| **Glance** | Running | `docker/glance/` (compose + `.env.example`, config not versioned) |
+| **Diun** | Running | `docker/diun/` |
+| **Portracker** | Running | `docker/portracker/` |
+| **Posterizarr** | Running | `docker/posterizarr/` |
+| **Speedtest Tracker** | Running | `docker/speedtest-tracker/` |
+| **Wiki.js** | Running (2 containers) | `docker/wikijs/` |
+| **Vert / Vertd** | Running | `docker/vert/` |
+| **Monitoring** (Prometheus, Grafana, Alertmanager, cAdvisor, Node Exporter, Blackbox, Uptime Kuma) | Running (Alertmanager with default config, no versioned rules) | `docker/monitoring/` |
+| **NetAlertX** | Running | `docker/netalertx/` |
+| **Plex** | Running | Mention only, no compose |
+| **WireGuard** | Running | Mention only (sensitive confs/keys, not versioned) |
+
+## 📡 Small machine — Pi-hole + home automation (Debian 13)
+
+| Service | Observed state | In this repo |
+|----------|---------------|-------------|
+| **Pi-hole** | Running | `docker/pihole/` |
+| **Home Assistant** | Running (`network_mode: host`) | `docker/homeassistant/` |
+| **Whisper** (wyoming-whisper, FR voice for HA) | Running | `docker/whisper/` |
+| **Portainer Agent** | Running (managed by the main Portainer) | Mention only |
 
 ## 📁 Repository Structure
 ```
 homelab/
 ├── docker/
 │ ├── diun/
+│ ├── glance/
+│ ├── homeassistant/
 │ ├── homer/
+│ │ └── homer_data/
 │ ├── monitoring/
 │ │ └── prometheus/
 │ ├── netalertx/
 │ ├── nextcloud/
 │ ├── nginx/
+│ ├── pihole/
+│ ├── portracker/
 │ ├── posterizarr/
 │ ├── speedtest-tracker/
 │ ├── vert/
+│ ├── whisper/
 │ └── wikijs/
+├── .gitignore
 └── README.md
 ```
 
@@ -64,12 +77,11 @@ Each service can be deployed individually:
 cd docker/<service_name>
 docker compose up -d
 ```
+First copy `.env.example` files to `.env` and fill in the real values locally (never committed).
 
 ## 🚀 Future Improvements
 - Set up Jellyfin
 - Set up Pterodactyl
-- Use an other dashboard than Homer (maybe Glance)
-- Set up portracker (mostafa-wahied) (installed, but needs to be updated in this repo)
 - Set up Overleaf
 
 ## 🪪 License

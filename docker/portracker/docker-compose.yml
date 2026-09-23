@@ -1,0 +1,19 @@
+services:
+  portracker:
+    image: mostafawahied/portracker:latest
+    container_name: portracker
+    restart: unless-stopped
+    pid: "host" # Required for port detection
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - ./portracker-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "xxxx:4999"
+    # environment:
+    #   Optional: For enhanced TrueNAS features
+    #   - TRUENAS_API_KEY=xxxxxxxx
